@@ -48,6 +48,9 @@ func (pow *ProofOfWork) Run() (int64, []byte) {
 	var nonce int64 = 0
 	var hashInt big.Int
 
+	fmt.Println("Begin Mining...")
+	fmt.Printf("target hash :    %x\n", pow.target.Bytes())
+
 	for nonce < math.MaxInt64 {
 		data := pow.PrepareData(nonce)
 		hash = sha256.Sum256(data)
@@ -62,12 +65,23 @@ func (pow *ProofOfWork) Run() (int64, []byte) {
 		//func (x *Int) Cmp(y *Int) (r int) {}
 
 		if hashInt.Cmp(pow.target) == -1 {
-			fmt.Printf("found nonce,nonce : %d,hash : %x\n", nonce, hash)
+			//fmt.Printf("found nonce,nonce : %d,hash : %x\n", nonce, hash)
+			fmt.Printf("found hash : %x,nonce : %d\n", hash, nonce)
 			break
 		} else {
-			fmt.Printf("not found nonce,current nonce : %d,hash : %x\n", nonce, hash)
+			//fmt.Printf("not found nonce,current nonce : %d,hash : %x\n", nonce, hash)
 			nonce++
 		}
 	}
 	return nonce, hash[:]
+}
+
+func (pow *ProofOfWork) IsValid() bool {
+	var hashInt big.Int
+
+	data := pow.PrepareData(pow.block.Nonce)
+	hash := sha256.Sum256(data)
+	hashInt.SetBytes(hash[:])
+
+	return hashInt.Cmp(pow.target) == -1
 }

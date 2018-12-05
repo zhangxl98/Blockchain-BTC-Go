@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bytes"
-	"crypto/sha256"
 	"time"
 )
 
@@ -37,10 +35,16 @@ func NewBlock(data string, prevBlockHash []byte) *Block {
 		Bits:       1,
 		Nonce:      1,
 		Data:       []byte(data)}
-	block.SetHash()
+
+	//block.SetHash()
+	pow:=NewProofWork(&block)
+	nonce,hash:=pow.Run()
+	block.Nonce=nonce
+	block.Hash=hash
 	return &block
 }
 
+/*
 func (block *Block) SetHash() {
 
 	// Sum256 returns the SHA256 checksum of the data.
@@ -62,6 +66,7 @@ func (block *Block) SetHash() {
 	hash := sha256.Sum256(data)
 	block.Hash = hash[:]
 }
+*/
 
 func NewGenesisBlock() *Block {
 	return NewBlock("Gedesis Block!", []byte{})
