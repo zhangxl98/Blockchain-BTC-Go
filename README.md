@@ -6,7 +6,7 @@
 
 # 技术栈
 
-go | Blockchain
+Go | Blockchain
 
 # 项目运行
 

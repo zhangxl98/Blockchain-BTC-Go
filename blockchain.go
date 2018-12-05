@@ -11,6 +11,6 @@ func NewBlockchain() *Blockchain {
 
 func (bc *Blockchain) AddBlock(data string) {
 	prevBlockHash := bc.blocks[len(bc.blocks)-1].Hash
-	block:=NewBlock(data, prevBlockHash)
-	bc.blocks=append(bc.blocks,block)
+	block := NewBlock(data, prevBlockHash)
+	bc.blocks = append(bc.blocks, block)
 }

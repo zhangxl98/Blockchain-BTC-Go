@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b2b9e85-c28d-4a9c-b8de-6d3c6af69a5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blockchain.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proofOfWork.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/block.go" beforeDir="false" afterPath="$PROJECT_DIR$/block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,15 +33,12 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/block.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1782">
-              <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
-              <folding>
-                <element signature="e#14#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="260">
+              <caret line="52" column="4" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="60" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -49,16 +47,28 @@
         <entry file="file://$PROJECT_DIR$/blockchain.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            <state relative-caret-position="368">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proofOfWork.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1036">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+              <folding>
+                <element signature="e#14#45#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,14 +98,16 @@
       <list>
         <option value="$PROJECT_DIR$/Block.go" />
         <option value="$PROJECT_DIR$/utils.go" />
-        <option value="$PROJECT_DIR$/block.go" />
         <option value="$PROJECT_DIR$/blockChain.go" />
+        <option value="$PROJECT_DIR$/block.go" />
+        <option value="$PROJECT_DIR$/blockchain.go" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/proofOfWork.go" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="529" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="473" />
     <option name="y" value="27" />
     <option name="width" value="1377" />
     <option name="height" value="961" />
@@ -153,16 +165,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="529" y="27" width="1377" height="961" extended-state="1" />
+    <frame x="473" y="27" width="1377" height="961" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16654107" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16955538" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" weight="0.32958803" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.39805827" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3288835" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -170,10 +178,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32958803" />
-      <window_info anchor="right" id="Database" weight="0.32931423" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32958803" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.08616505" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32931423" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,27 +221,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blockchain.go">
+    <entry file="file:///usr/lib/go-1.10/src/math/big/int.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        <state relative-caret-position="78">
+          <caret line="306" selection-start-line="306" selection-end-line="312" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/block.go">
+    <entry file="file://$PROJECT_DIR$/proofOfWork.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+        <state relative-caret-position="-1036">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
-            <element signature="e#14#49#0" expanded="true" />
+            <element signature="e#14#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="368">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="52" column="4" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="60" selection-end-column="37" />
         </state>
       </provider>
     </entry>

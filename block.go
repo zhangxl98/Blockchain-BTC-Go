@@ -63,6 +63,6 @@ func (block *Block) SetHash() {
 	block.Hash = hash[:]
 }
 
-func NewGenesisBlock()  *Block{
-	return NewBlock("Gedesis Block!",[]byte{})
+func NewGenesisBlock() *Block {
+	return NewBlock("Gedesis Block!", []byte{})
 }
