@@ -27,7 +27,7 @@ type Block struct {
 func NewBlock(data string, prevBlockHash []byte) *Block {
 	var block Block
 	block = Block{
-		Version:       1,
+		Version:       3,
 		PrevBlockHash: prevBlockHash,
 		//Hash:	TODO
 		MerkelRoot: []byte{},
