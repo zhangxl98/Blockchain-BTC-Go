@@ -1,12 +1,11 @@
 package main
 
-import "fmt"
-
 func main() {
 	bc := NewBlockchain()
 	bc.AddBlock("A Send B 1 BTC")
 	bc.AddBlock("B Send C 1 BTC")
 
+	/*
 	for _, block := range bc.blocks {
 		fmt.Printf("Version: %d\n", block.Version)
 		fmt.Printf("PrevBlochHash: %x\n", block.PrevBlockHash)
@@ -18,4 +17,5 @@ func main() {
 		fmt.Printf("Isvalid: %v\n", NewProofWork(block).IsValid())
 		fmt.Println()
 	}
+	*/
 }

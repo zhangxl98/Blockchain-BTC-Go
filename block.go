@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/gob"
 	"time"
 )
 
@@ -37,36 +39,31 @@ func NewBlock(data string, prevBlockHash []byte) *Block {
 		Data:       []byte(data)}
 
 	//block.SetHash()
-	pow:=NewProofWork(&block)
-	nonce,hash:=pow.Run()
-	block.Nonce=nonce
-	block.Hash=hash
+	pow := NewProofWork(&block)
+	nonce, hash := pow.Run()
+	block.Nonce = nonce
+	block.Hash = hash
 	return &block
 }
 
-/*
-func (block *Block) SetHash() {
-
-	// Sum256 returns the SHA256 checksum of the data.
-	//func Sum256(data []byte) [Size]byte {}
-
-	// Join concatenates the elements of s to create a new byte slice. The separator
-	// sep is placed between elements in the resulting slice.
-	//func Join(s [][]byte, sep []byte) []byte {}
-
-	tmp := [][]byte{
-		IntToByte(block.Version),
-		block.PrevBlockHash,
-		block.MerkelRoot,
-		IntToByte(block.TimeStamp),
-		IntToByte(block.Bits),
-		IntToByte(block.Nonce),
-		block.Data}
-	data := bytes.Join(tmp, []byte{})
-	hash := sha256.Sum256(data)
-	block.Hash = hash[:]
+func (block *Block) Serialize() []byte {
+	var buffer bytes.Buffer
+	encoder := gob.NewEncoder(&buffer)
+	err := encoder.Encode(block)
+	CheckErr("Serialize", err)
+	return buffer.Bytes()
 }
-*/
+
+func Deserialize(data []byte) *Block {
+	if len(data) == 0 {
+		return nil
+	}
+	var block Block
+	decoder := gob.NewDecoder(bytes.NewReader(data))
+	err := decoder.Decode(&block)
+	CheckErr("Deserialize", err)
+	return &block
+}
 
 func NewGenesisBlock() *Block {
 	return NewBlock("Gedesis Block!", []byte{})

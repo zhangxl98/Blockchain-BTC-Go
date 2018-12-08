@@ -6,7 +6,7 @@
 
 # 技术栈
 
-Go | Blockchain
+Go | Blockchain | Bolt
 
 # 项目运行
 

@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/boltdb/bolt"
+	"os"
 )
 
 const dbFile = "blockchain.db"
@@ -17,7 +18,7 @@ type Blockchain struct {
 
 func NewBlockchain() *Blockchain {
 	//func Open(path string, mode os.FileMode, options *Options) (*DB, error) {}
-	db, err := bolt.Open(dbFile, 0x0600, nil)
+	db, err := bolt.Open(dbFile, 0600, nil)
 	CheckErr("NewBlockchain_1", err)
 
 	var lastHash []byte
@@ -32,7 +33,7 @@ func NewBlockchain() *Blockchain {
 			genesis := NewGenesisBlock()
 			bucket, err := tx.CreateBucket([]byte(blockBucket))
 			CheckErr("NewBlockchain_2", err)
-			err = bucket.Put(genesis.Hash, genesis.Serialize()) //TODO
+			err = bucket.Put(genesis.Hash, genesis.Serialize())
 			CheckErr("NewBlockchain_3", err)
 			err = bucket.Put([]byte(lastHashKey), genesis.Hash)
 			CheckErr("NewBlockchain_4", err)
@@ -45,7 +46,31 @@ func NewBlockchain() *Blockchain {
 }
 
 func (bc *Blockchain) AddBlock(data string) {
-	prevBlockHash := bc.blocks[len(bc.blocks)-1].Hash
-	block := NewBlock(data, prevBlockHash)
-	bc.blocks = append(bc.blocks, block)
+	var prevBlockHash []byte
+	bc.db.View(func(tx *bolt.Tx) error {
+		bucket:=tx.Bucket([]byte(blockBucket))
+		if bucket ==nil{
+			os.Exit(1)
+		}
+
+		prevBlockHash=bucket.Get([]byte(lastHashKey))
+		return nil
+	})
+
+	block:=NewBlock(data,prevBlockHash)
+
+	err:=bc.db.Update(func(tx *bolt.Tx) error {
+		bucket:=tx.Bucket([]byte(blockBucket))
+		if bucket ==nil{
+			os.Exit(1)
+		}
+
+		err := bucket.Put(block.Hash, block.Serialize())
+		CheckErr("AddBlock_1", err)
+		err = bucket.Put([]byte(lastHashKey), block.Hash)
+		CheckErr("AddBlock_2", err)
+		bc.tail=block.Hash
+		return nil
+	})
+	CheckErr("AddBlock_3",err)
 }
